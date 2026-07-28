@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="3-minute parent survey: help shape eRobot Studio's small-group robotics & AI programs in the Dallas area.">
+<meta name="robots" content="noindex">
+<title>Parent Survey — eRobot Studio</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  .survey-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px 60px; }
+  .qsection { padding: 10px 0 4px; }
+  .qsection .eyebrow { color: var(--accent-ink); margin: 26px 0 4px; }
+  .qcard {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 20px 22px 18px; margin: 14px 0; border-left: 3px solid var(--line);
+  }
+  .qcard:focus-within { border-left-color: var(--accent); }
+  .qcard legend, .qcard .qlabel {
+    font-weight: 600; font-size: 1.02rem; padding: 0; margin: 0 0 4px; line-height: 1.4;
+  }
+  .qcard fieldset { border: none; margin: 0; padding: 0; }
+  .qhint { color: var(--steel); font-size: 0.88rem; margin: 0 0 10px; }
+  .req { color: var(--accent-ink); }
+  .opt { display: flex; flex-direction: column; gap: 2px; }
+  .opt label {
+    display: flex; align-items: baseline; gap: 10px; padding: 7px 10px;
+    border-radius: 8px; cursor: pointer; font-size: 0.97rem;
+  }
+  .opt label:hover { background: var(--surface-2); }
+  .opt input { accent-color: var(--accent); transform: translateY(1px); flex: none; }
+  .opt input[type="radio"], .opt input[type="checkbox"] { width: 17px; height: 17px; }
+  .scale { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .scale label {
+    flex: 1 1 0; min-width: 52px; text-align: center; border: 1.5px solid var(--line);
+    border-radius: 10px; padding: 10px 4px 8px; cursor: pointer; display: flex;
+    flex-direction: column; gap: 2px; align-items: center; font-weight: 600;
+  }
+  .scale label:hover { border-color: var(--accent); }
+  .scale label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+  .scale input { position: absolute; opacity: 0; pointer-events: none; }
+  .scale .anchor { font-weight: 400; font-size: 0.68rem; color: var(--steel); line-height: 1.25; }
+  .scale label:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+  input[type="text"], input[type="email"], textarea {
+    width: 100%; font: inherit; color: var(--ink); background: var(--ground);
+    border: 1.5px solid var(--line); border-radius: 8px; padding: 9px 12px;
+  }
+  input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    outline: none; border-color: var(--accent);
+  }
+  .valuebox {
+    border-left: 3px solid var(--accent); background: var(--accent-soft);
+    border-radius: 0 10px 10px 0; padding: 14px 18px; font-size: 0.95rem; margin: 0 0 14px;
+  }
+  .othertext { margin: 4px 0 0 34px; width: calc(100% - 34px); display: none; }
+  .othertext.show { display: block; }
+  #email-block { display: none; }
+  #email-block.show { display: block; }
+  .errmsg { color: var(--accent-ink); font-size: 0.88rem; font-weight: 600; margin: 8px 0 0; display: none; }
+  .errmsg.show { display: block; }
+  .submitrow { margin: 26px 0 0; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .btn.primary:disabled { opacity: 0.6; cursor: wait; }
+  .formnote { color: var(--steel); font-size: 0.85rem; }
+  .banner {
+    border: 1.5px dashed var(--accent); border-radius: 10px; background: var(--accent-soft);
+    padding: 12px 16px; font-size: 0.9rem; margin: 18px 0 0; display: none;
+  }
+  .banner.show { display: block; }
+  #thanks { display: none; text-align: center; padding: 70px 0 90px; }
+  #thanks.show { display: block; }
+  #thanks h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 600; margin-bottom: 12px; }
+  #thanks p { color: var(--steel); max-width: 46ch; margin: 0 auto 10px; }
+  .hp { position: absolute; left: -9999px; top: -9999px; height: 1px; width: 1px; overflow: hidden; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="top">
+    <a class="wordmark" href="../index.html"><span class="dot"></span>eRobot Studio</a>
+    <div class="navlinks">
+      <a href="../robots/lekiwi/index.html">LeKiwi</a>
+      <a href="../about/index.html">About</a>
+      <a class="cta" href="../enroll/index.html">Request a spot</a>
+    </div>
+  </nav>
+</div>
+
+<div class="survey-wrap">
+  <div class="hero solo">
+    <div class="eyebrow mono">Parent survey &middot; 3 minutes &middot; Dallas&ndash;Fort Worth</div>
+    <h1 style="font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 600;">Help shape Dallas's first <em>research-grade</em> robotics studio.</h1>
+    <p class="sub" style="margin-bottom: 0;">We're planning small-group robotics &amp; AI programs where kids ages 8&ndash;18
+    build real robots and train real AI models &mdash; the same open-source hardware and software used
+    in research labs. Tell us what would work for your family. At the end, you can opt in to a
+    <strong>founding-family discount</strong> for our first pilot cohorts.</p>
+  </div>
+
+  <div class="banner" id="config-banner">
+    <strong>Heads up (site owner only):</strong> this survey isn't connected to its response
+    store yet. Set <code>ENDPOINT</code> in this page's script before sharing the link.
+  </div>
+
+  <form id="survey" novalidate>
+    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <div class="qsection">
+      <div class="eyebrow mono">1 &middot; About your family</div>
+
+      <div class="qcard"><fieldset>
+        <legend>Which part of the DFW area do you live in? <span class="req">*</span></legend>
+        <div class="opt" id="q-area"></div>
+        <input type="text" class="othertext" id="area-other" placeholder="Your city or neighborhood" aria-label="Other area">
+        <p class="errmsg">Please pick your area.</p>
+      </fieldset></div>
+
+      <div class="qcard"><fieldset>
+        <legend>What are the ages of your children who might be interested? <span class="req">*</span></legend>
+        <p class="qhint">Check all that apply.</p>
+        <div class="opt" id="q-ages"></div>
+        <p class="errmsg">Please check at least one.</p>
+      </fieldset></div>
+
+      <div class="qcard"><fieldset>
+        <legend>Which STEM activities has your child done in the past 2 years?</legend>
+        <p class="qhint">Check all that apply.</p>
+        <div class="opt" id="q-activities"></div>
+      </fieldset></div>
+    </div>
+
+    <div class="qsection">
+      <div class="eyebrow mono">2 &middot; Interest &amp; fit</div>
+
+      <div class="qcard"><fieldset>
+        <legend>How interested would your child be in a hands-on robotics &amp; AI program &mdash;
+        building a robot arm or mobile robot and teaching it tasks using real AI? <span class="req">*</span></legend>
+        <div class="scale" id="q-interest"></div>
+        <p class="errmsg">Please pick a rating.</p>
+      </fieldset></div>
+
+      <div class="qcard"><fieldset>
+        <legend>Which of these matter most to you in such a program?</legend>
+        <p class="qhint">Pick up to 3.</p>
+        <div class="opt" id="q-priorities"></div>
+      </fieldset></div>
+
+      <div class="qcard"><fieldset>
+        <legend>Which format would work best for your family?</legend>
+        <div class="opt" id="q-format"></div>
+      </fieldset></div>
+
+      <div class="qcard"><fieldset>
+        <legend>What time slots are realistic for you?</legend>
+        <p class="qhint">Check all that apply.</p>
+        <div class="opt" id="q-slots"></div>
+      </fieldset></div>
+
+      <div class="qcard"><fieldset>
+        <legend>How far would you drive for a high-quality weekly program?</legend>
+        <div class="opt" id="q-drive"></div>
+      </fieldset></div>
+    </div>
+
+    <div class="qsection">
+      <div class="eyebrow mono">3 &middot; The honest pricing question</div>
+
+      <div class="qcard">
+        <div class="valuebox">A session looks like this: <strong>90 minutes</strong>, max
+        <strong>4 students</strong> on 1&ndash;2 robot stations, taught by a
+        <strong>PhD robotics &amp; AI researcher</strong>. Students build and train real robots and
+        graduate with a portfolio &mdash; code on GitHub and trained AI models published under their name.</div>
+        <fieldset>
+          <legend>How likely would you be to enroll at <strong>$150 per session</strong>
+          ($1,200 for an 8-week program)? <span class="req">*</span></legend>
+          <div class="scale" id="q-price150"></div>
+          <p class="errmsg">Please pick a rating.</p>
+        </fieldset>
+      </div>
+
+      <div class="qcard"><fieldset>
+        <legend>What price per session would feel like a fair value for the program described above?</legend>
+        <div class="opt" id="q-priceFair"></div>
+      </fieldset></div>
+
+      <div class="qcard"><fieldset>
+        <legend>What would give you pause about enrolling?</legend>
+        <p class="qhint">Check all that apply.</p>
+        <div class="opt" id="q-concerns"></div>
+      </fieldset></div>
+    </div>
+
+    <div class="qsection">
+      <div class="eyebrow mono">4 &middot; Pilot cohorts</div>
+
+      <div class="qcard"><fieldset>
+        <legend>We're forming our first pilot cohorts in North DFW this fall &mdash; founding families
+        get priority placement and a discount. Want in? <span class="req">*</span></legend>
+        <div class="opt" id="q-pilot"></div>
+        <p class="errmsg">Please pick one.</p>
+      </fieldset></div>
+
+      <div class="qcard" id="email-block">
+        <label class="qlabel" for="email">Your email <span class="req">*</span></label>
+        <p class="qhint">Only used for pilot updates. No spam, never shared.</p>
+        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+        <p class="errmsg">Please enter a valid email (or choose "No thanks" above).</p>
+      </div>
+
+      <div class="qcard">
+        <label class="qlabel" for="comments">Anything you'd want this program to include? Questions for the founder?</label>
+        <textarea id="comments" rows="3"></textarea>
+      </div>
+    </div>
+
+    <div class="submitrow">
+      <button class="btn primary" type="submit" id="submit-btn">Send my answers</button>
+      <p class="errmsg" id="submit-err">Something went wrong sending your answers. Please try again,
+        or email us at <a href="mailto:hello@erobotstudio.example">hello@erobotstudio.example</a>.</p>
+      <p class="formnote">Takes ~3 minutes &middot; no account needed &middot; we only contact you if you opt in.</p>
+    </div>
+  </form>
+
+  <div id="thanks">
+    <div class="eyebrow mono" style="color: var(--accent-ink); margin-bottom: 14px;">Response recorded</div>
+    <h2>Thank you — this genuinely shapes what we build.</h2>
+    <p>If you opted into the pilot list, you'll hear from the founder directly with cohort dates,
+    location options, and your founding-family discount.</p>
+    <p><a href="../index.html">Meet the robots while you're here &rarr;</a></p>
+  </div>
+</div>
+
+<footer>
+  <div>&copy; 2026 eRobot Studio &middot; Researcher-led robotics &amp; AI for ages 8&ndash;18 &middot; Dallas, TX</div>
+</footer>
+
+<script>
+// ---- configuration -------------------------------------------------------
+// Paste the Google Apps Script web-app URL from survey-backend/README.md:
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbxgMKo5dihv4Uc8J6mO0nOujp1NdJcPcVWjKp9UdFqTT5lKWxvfdf81OD2GnShfaCiZpg/exec";
+// ---------------------------------------------------------------------------
+
+const OPTIONS = {
+  area: ["Plano", "Frisco", "McKinney / Prosper", "Allen / Fairview", "Richardson / Murphy",
+         "North Dallas / Preston Hollow", "Coppell / Irving / Las Colinas",
+         "Southlake / Grapevine / Colleyville", "Other"],
+  ages: ["8–10", "11–13", "14–18", "None in this range"],
+  activities: ["School robotics club (FLL / VEX / FTC / FRC)",
+               "Coding classes (Code Ninjas, Scratch, Python…)",
+               "Math enrichment (Kumon, RSM, AoPS…)",
+               "Science camps / maker spaces",
+               "None yet — looking for a first program"],
+  priorities: ["Real robot hardware, not toy kits",
+               "Actual AI & machine learning, not just coding",
+               "Very small groups (max 4 students)",
+               "Instructor is a working PhD researcher",
+               "Portfolio outcomes (GitHub, published models)",
+               "College & career pathway guidance",
+               "Fun and confidence-building"],
+  format: ["Weekly sessions during the school semester (8-week program)",
+           "School-break camps (multi-day intensives)",
+           "One-off weekend workshops to try it out",
+           "Private 1-on-1 coaching"],
+  slots: ["Weekday evenings (5–8 pm)", "Saturday morning", "Saturday afternoon", "Sunday afternoon"],
+  drive: ["Up to 10 minutes", "Up to 20 minutes", "Up to 30 minutes", "Distance isn't a major factor"],
+  priceFair: ["Under $75", "$75–$114", "$115–$149", "$150–$199", "$200+"],
+  concerns: ["Price", "Schedule / other commitments", "Not sure my child is ready",
+             "Not sure it's better than existing options (FLL, coding schools…)",
+             "Driving distance", "Nothing — I'd want to try a session first"],
+  pilot: ["Yes — send me details", "Maybe — add me to the mailing list", "No thanks"]
+};
+const SCALES = {
+  interest: { low: "Not interested", high: "Extremely interested" },
+  price150: { low: "Definitely not", high: "Definitely would" }
+};
+
+function renderChoices(name, type) {
+  const box = document.getElementById("q-" + name);
+  OPTIONS[name].forEach(v => {
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = type; input.name = name; input.value = v;
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(v));
+    box.appendChild(label);
+  });
+}
+function renderScale(name) {
+  const box = document.getElementById("q-" + name);
+  for (let i = 1; i <= 5; i++) {
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    input.type = "radio"; input.name = name; input.value = i;
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(i));
+    const anchor = document.createElement("span");
+    anchor.className = "anchor";
+    anchor.textContent = i === 1 ? SCALES[name].low : i === 5 ? SCALES[name].high : " ";
+    label.appendChild(anchor);
+    box.appendChild(label);
+  }
+}
+["area", "format", "drive", "priceFair", "pilot"].forEach(n => renderChoices(n, "radio"));
+["ages", "activities", "priorities", "slots", "concerns"].forEach(n => renderChoices(n, "checkbox"));
+["interest", "price150"].forEach(renderScale);
+
+// "Other" area reveals a text box
+const areaOther = document.getElementById("area-other");
+document.querySelectorAll('input[name="area"]').forEach(r =>
+  r.addEventListener("change", () => areaOther.classList.toggle("show", r.value === "Other" && r.checked)));
+
+// "None in this range" is exclusive of the age brackets
+document.querySelectorAll('input[name="ages"]').forEach(c =>
+  c.addEventListener("change", () => {
+    const boxes = [...document.querySelectorAll('input[name="ages"]')];
+    const none = boxes.find(b => b.value.startsWith("None"));
+    if (c === none && c.checked) boxes.forEach(b => { if (b !== none) b.checked = false; });
+    else if (c.checked) none.checked = false;
+  }));
+
+// priorities capped at 3
+document.querySelectorAll('input[name="priorities"]').forEach(c =>
+  c.addEventListener("change", () => {
+    const checked = document.querySelectorAll('input[name="priorities"]:checked');
+    if (checked.length > 3) c.checked = false;
+  }));
+
+// email revealed for pilot yes/maybe
+const emailBlock = document.getElementById("email-block");
+document.querySelectorAll('input[name="pilot"]').forEach(r =>
+  r.addEventListener("change", () =>
+    emailBlock.classList.toggle("show", !document.querySelector('input[name="pilot"]:checked').value.startsWith("No"))));
+
+function radioValue(name) {
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : "";
+}
+function checkedValues(name) {
+  return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(el => el.value);
+}
+function flagError(inputName, bad) {
+  const input = document.querySelector(`[name="${inputName}"], #${inputName}`);
+  const card = input.closest(".qcard");
+  card.querySelector(".errmsg").classList.toggle("show", bad);
+  if (bad) card.scrollIntoView({ block: "center" });
+  return bad;
+}
+
+const form = document.getElementById("survey");
+if (ENDPOINT.startsWith("PASTE")) document.getElementById("config-banner").classList.add("show");
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  const pilot = radioValue("pilot");
+  const needsEmail = pilot && !pilot.startsWith("No");
+  const email = document.getElementById("email").value.trim();
+  const bad =
+    [flagError("area", !radioValue("area")),
+     flagError("ages", checkedValues("ages").length === 0),
+     flagError("interest", !radioValue("interest")),
+     flagError("price150", !radioValue("price150")),
+     flagError("pilot", !pilot),
+     flagError("email", needsEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))].some(Boolean);
+  if (bad) return;
+
+  let area = radioValue("area");
+  if (area === "Other" && areaOther.value.trim()) area = "Other: " + areaOther.value.trim();
+
+  const payload = {
+    website: form.website.value,   // honeypot
+    area,
+    ages: checkedValues("ages"),
+    activities: checkedValues("activities"),
+    interest: Number(radioValue("interest")),
+    priorities: checkedValues("priorities"),
+    format: radioValue("format"),
+    slots: checkedValues("slots"),
+    drive: radioValue("drive"),
+    price150: Number(radioValue("price150")),
+    priceFair: radioValue("priceFair"),
+    concerns: checkedValues("concerns"),
+    pilot,
+    email: needsEmail ? email : "",
+    comments: document.getElementById("comments").value.trim(),
+    source: new URLSearchParams(location.search).get("src") || "direct"
+  };
+
+  const btn = document.getElementById("submit-btn");
+  const err = document.getElementById("submit-err");
+  err.classList.remove("show");
+  btn.disabled = true; btn.textContent = "Sending…";
+  try {
+    if (ENDPOINT.startsWith("PASTE")) throw new Error("endpoint not configured");
+    const res = await fetch(ENDPOINT, { method: "POST", body: JSON.stringify(payload) });
+    const out = await res.json();
+    if (!out.ok) throw new Error(out.error || "server rejected");
+    form.style.display = "none";
+    document.querySelector(".hero.solo").style.display = "none";
+    document.getElementById("thanks").classList.add("show");
+    window.scrollTo({ top: 0 });
+  } catch (ex) {
+    err.classList.add("show");
+    btn.disabled = false; btn.textContent = "Send my answers";
+  }
+});
+</script>
+</body>
+</html>
