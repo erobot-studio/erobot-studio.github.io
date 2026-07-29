@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="eRobot Studio mark">
+  <line x1="60" y1="32" x2="60" y2="19" stroke="#141C28" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="60" cy="13" r="6" fill="#E4570F"/>
+  <path d="M94 66 A34 34 0 1 0 86 88" fill="none" stroke="#141C28" stroke-width="9" stroke-linecap="round"/>
+  <path d="M26 66 H94" fill="none" stroke="#141C28" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="47" cy="50" r="5" fill="#141C28"/>
+  <circle cx="73" cy="50" r="5" fill="#141C28"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 120" role="img" aria-label="eRobot Studio (reverse)">
+  <g>
+    <line x1="60" y1="32" x2="60" y2="19" stroke="#F4F2EC" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="60" cy="13" r="6" fill="#E4570F"/>
+    <path d="M94 66 A34 34 0 1 0 86 88" fill="none" stroke="#F4F2EC" stroke-width="9" stroke-linecap="round"/>
+    <path d="M26 66 H94" fill="none" stroke="#F4F2EC" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="47" cy="50" r="5" fill="#F4F2EC"/>
+    <circle cx="73" cy="50" r="5" fill="#F4F2EC"/>
+  </g>
+  <text x="128" y="76" font-family="'Avenir Next Condensed','Futura','Arial Narrow','Helvetica Neue',sans-serif" font-weight="700" font-size="60"><tspan fill="#E4570F">e</tspan><tspan fill="#F4F2EC">Robot</tspan></text>
+  <text x="131" y="101" font-family="ui-monospace,'SF Mono',Menlo,Consolas,monospace" font-size="15" letter-spacing="10" fill="#9FB2C4">STUDIO</text>
+</svg>
