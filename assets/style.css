@@ -145,18 +145,6 @@ a.pcard:hover { border-color: var(--accent); }
 .pcard p { color: var(--steel); font-size: 0.95rem; margin: 0; }
 .pcard .go { color: var(--accent-ink); font-weight: 600; font-size: 0.95rem; }
 
-/* age router */
-.agegrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
-a.agecard {
-  text-decoration: none; color: var(--ink); border: 1.5px solid var(--line);
-  border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 6px;
-  transition: border-color 0.15s ease;
-}
-a.agecard:hover { border-color: var(--accent); }
-.agecard .age { font-family: Futura, "Century Gothic", system-ui, sans-serif; font-size: 1.9rem; font-weight: 600; }
-.agecard .prog { font-weight: 600; }
-.agecard .note { color: var(--steel); font-size: 0.9rem; }
-
 /* timeline */
 .timeline { border-left: 2px solid var(--line); margin: 0 0 0 8px; padding: 0; list-style: none; }
 .timeline li { position: relative; padding: 0 0 24px 30px; max-width: 62ch; }
