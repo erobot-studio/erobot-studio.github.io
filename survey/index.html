@@ -260,8 +260,7 @@ const OPTIONS = {
           "Drones — programmed flight missions",
           "Robot arm — learns tasks from human demonstration",
           "Mobile robot — an arm on wheels that drives, sees & grabs",
-          "Humanoid robot — balance, walking & whole-body AI",
-          "Not sure — they'd love any robot"],
+          "Humanoid robot — balance, walking & whole-body AI"],
   priorities: ["Real robot hardware, not toy kits",
                "Actual AI & machine learning, not just coding",
                "Very small groups (max 4 students)",
@@ -337,15 +336,6 @@ document.querySelectorAll('input[name="ages"]').forEach(c =>
       const checked = document.querySelectorAll(`input[name="${name}"]:checked`);
       if (checked.length > 3) c.checked = false;
     })));
-
-// "Not sure" is exclusive of the specific robots
-document.querySelectorAll('input[name="robot"]').forEach(c =>
-  c.addEventListener("change", () => {
-    const boxes = [...document.querySelectorAll('input[name="robot"]')];
-    const notSure = boxes.find(b => b.value.startsWith("Not sure"));
-    if (c === notSure && c.checked) boxes.forEach(b => { if (b !== notSure) b.checked = false; });
-    else if (c.checked) notSure.checked = false;
-  }));
 
 // email revealed for pilot yes/maybe
 const emailBlock = document.getElementById("email-block");
