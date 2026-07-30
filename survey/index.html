@@ -141,8 +141,8 @@
       </fieldset></div>
 
       <div class="qcard"><fieldset>
-        <legend>Which robot would your child be most excited to build and train?</legend>
-        <p class="qhint">Pick the one they'd run to first.</p>
+        <legend>Which robots would your child be most excited to build and train?</legend>
+        <p class="qhint">Pick up to 3.</p>
         <div class="opt" id="q-robot"></div>
       </fieldset></div>
 
@@ -312,8 +312,8 @@ function renderScale(name) {
     box.appendChild(label);
   }
 }
-["area", "robot", "format", "drive", "priceFair", "pilot"].forEach(n => renderChoices(n, "radio"));
-["ages", "activities", "priorities", "slots", "concerns"].forEach(n => renderChoices(n, "checkbox"));
+["area", "format", "drive", "priceFair", "pilot"].forEach(n => renderChoices(n, "radio"));
+["ages", "activities", "robot", "priorities", "slots", "concerns"].forEach(n => renderChoices(n, "checkbox"));
 ["interest", "price150"].forEach(renderScale);
 
 // "Other" area reveals a text box
@@ -330,11 +330,21 @@ document.querySelectorAll('input[name="ages"]').forEach(c =>
     else if (c.checked) none.checked = false;
   }));
 
-// priorities capped at 3
-document.querySelectorAll('input[name="priorities"]').forEach(c =>
+// priorities and robot picks capped at 3
+["priorities", "robot"].forEach(name =>
+  document.querySelectorAll(`input[name="${name}"]`).forEach(c =>
+    c.addEventListener("change", () => {
+      const checked = document.querySelectorAll(`input[name="${name}"]:checked`);
+      if (checked.length > 3) c.checked = false;
+    })));
+
+// "Not sure" is exclusive of the specific robots
+document.querySelectorAll('input[name="robot"]').forEach(c =>
   c.addEventListener("change", () => {
-    const checked = document.querySelectorAll('input[name="priorities"]:checked');
-    if (checked.length > 3) c.checked = false;
+    const boxes = [...document.querySelectorAll('input[name="robot"]')];
+    const notSure = boxes.find(b => b.value.startsWith("Not sure"));
+    if (c === notSure && c.checked) boxes.forEach(b => { if (b !== notSure) b.checked = false; });
+    else if (c.checked) notSure.checked = false;
   }));
 
 // email revealed for pilot yes/maybe
@@ -384,7 +394,7 @@ form.addEventListener("submit", async e => {
     ages: checkedValues("ages"),
     activities: checkedValues("activities"),
     interest: Number(radioValue("interest")),
-    robot: radioValue("robot"),
+    robot: checkedValues("robot"),
     priorities: checkedValues("priorities"),
     format: radioValue("format"),
     slots: checkedValues("slots"),
