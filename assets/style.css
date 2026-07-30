@@ -43,7 +43,7 @@ nav.top {
   font-weight: 700; font-size: 1.15rem; color: var(--ink);
   text-decoration: none; display: flex; align-items: center; gap: 9px;
 }
-.wordmark .dot { width: 13px; height: 13px; border-radius: 3px; background: var(--accent); display: inline-block; }
+.wordmark .mark { width: 27px; height: 27px; display: block; flex: none; }
 .navlinks { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
 .navlinks a { color: var(--steel); text-decoration: none; font-size: 0.92rem; font-weight: 500; }
 .navlinks a:hover { color: var(--accent-ink); }
