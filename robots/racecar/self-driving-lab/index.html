@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="8-week self-driving car program for ages 11-18: build the car, code a lane-following autopilot, train a neural network on your own driving. Coming soon.">
-<title>Self-Driving Lab (ages 11-18) — coming soon | eRobot Studio</title>
+<meta name="description" content="8-session self-driving car program for high schoolers on NVIDIA JetRacer: build the car, label a dataset, train a neural network, optimize it with TensorRT, and race it. Ages 14-18. Coming soon.">
+<title>RaceCar Self-Driving Lab (ages 14-18) — coming soon | eRobot Studio</title>
 <link rel="stylesheet" href="../../../assets/style.css">
 <link rel="icon" type="image/svg+xml" href="../../../assets/logo/favicon.svg">
 <link rel="icon" type="image/png" sizes="256x256" href="../../../assets/logo/favicon-256.png">
@@ -28,51 +28,145 @@
 
   <div class="hero">
     <div>
-      <div class="eyebrow mono">RaceCar &middot; Ages 11&ndash;18 &middot; Coming soon</div>
+      <div class="eyebrow mono">RaceCar &middot; Ages 14&ndash;18 &middot; Coming soon</div>
       <h1>Self-Driving Lab</h1>
-      <p class="sub">The full self-driving workflow in eight weeks: build the car, code a
-      classical lane-following autopilot, then record your own driving and train a neural
-      network that races without you.</p>
-      <div class="btnrow"><a class="btn primary" href="../../../enroll/index.html">Join the interest list</a></div>
+      <p class="sub">The full self-driving pipeline in eight sessions, on NVIDIA's open-source
+      JetRacer platform: build the car, label your own dataset, train a neural network that
+      steers from camera alone, make it several times faster with TensorRT &mdash; then race it
+      at a family Grand Prix.</p>
+      <div class="btnrow">
+        <a class="btn primary" href="../../../enroll/index.html">Join the interest list</a>
+        <a class="btn ghost" href="../index.html">Meet the robot</a>
+      </div>
     </div>
     <div class="herobot">
       <div>
         <img src="../../../assets/robots/racecar.jpg" width="1144" height="858"
-             alt="The self-driving RC car used in this program: a 1/16-scale chassis with a Raspberry Pi controller board and a mast-mounted camera the car steers by">
-        <span class="photonote mono">Camera-only autonomy &mdash; Pi brain, real sensors</span>
+             alt="A small self-driving RC car development platform: exposed chassis with an onboard computer, a camera on a 3D-printed mast, two antennas, and a foam front bumper">
+        <span class="photonote mono">Camera-only autonomy &mdash; NVIDIA Jetson brain, real deep learning</span>
       </div>
     </div>
   </div>
+
   <div class="specbar">
-    <div class="cell"><span class="k mono">Length</span><span class="v">8 weeks &middot; 90 min/week</span></div>
+    <div class="cell"><span class="k mono">Length</span><span class="v">8 sessions &middot; 90 min each</span></div>
     <div class="cell"><span class="k mono">Class size</span><span class="v">At most 4 students</span></div>
-    <div class="cell"><span class="k mono">Ages</span><span class="v">11&ndash;18</span></div>
+    <div class="cell"><span class="k mono">Ages</span><span class="v">14&ndash;18</span></div>
+    <div class="cell"><span class="k mono">Experience</span><span class="v">None required</span></div>
     <div class="cell"><span class="k mono">Tuition (planned)</span><span class="v">$1,200</span></div>
   </div>
+
   <section>
-    <div class="sechead"><div class="eyebrow mono">What to expect</div><h2>The shape of the program</h2></div>
-    <ul class="checks">
-      <li><strong>Build &amp; drive.</strong> Assemble the chassis &mdash; steering servo, motor, camera, Raspberry Pi &mdash; then drive it by wire from Python.</li>
-      <li><strong>Classical autopilot.</strong> An OpenCV lane detector and a steering controller that students tune until the car laps the track on its own.</li>
-      <li><strong>Train the driver.</strong> Behavioral cloning: your best laps become training data for a neural network that steers from camera alone &mdash; the same loop used on real autonomous vehicles.</li>
-      <li><strong>Grand Prix finale.</strong> Autonomous time trials and head-to-head races, scored live for families.</li>
+    <div class="sechead">
+      <div class="eyebrow mono">The 8-session journey</div>
+      <h2>Every session, the car drives better than the session before.</h2>
+      <p>Built on the open-source <a href="https://github.com/NVIDIA-AI-IOT/jetracer">NVIDIA JetRacer</a>
+      curriculum &mdash; the same notebooks NVIDIA publishes for universities &mdash; extended with
+      studio scaffolding and race engineering.</p>
+    </div>
+    <ul class="timeline">
+      <li><span class="wk mono">Session 1</span><span class="t">Build the car</span><p class="d">Assemble the JetRacer &mdash; chassis, camera mast, NVIDIA Jetson brain &mdash; and make the wheels move from Python in the browser.</p></li>
+      <li><span class="wk mono">Session 2</span><span class="t">Drive-by-wire</span><p class="d">Calibrate steering and throttle in software, race by gamepad, and learn the racing line the AI will later have to beat.</p></li>
+      <li><span class="wk mono">Session 3</span><span class="t">Label the racing line</span><p class="d">Build a real dataset by clicking where the car should aim on live camera images, then train a ResNet18 neural network and watch it learn.</p></li>
+      <li><span class="wk mono">Session 4</span><span class="t">First neural laps</span><p class="d">Connect the network's predictions to the steering. First fully autonomous laps &mdash; and a map of every place it fails.</p></li>
+      <li><span class="wk mono">Session 5</span><span class="t">Data is the new horsepower</span><p class="d">Fix the driver by fixing the data: targeted collection at failure spots, retrain, measure. The iteration loop real autonomy teams live in.</p></li>
+      <li><span class="wk mono">Session 6</span><span class="t">Need for speed: TensorRT</span><p class="d">Benchmark the model, optimize it with TensorRT for a measured multi&times; speedup, and spend the extra frames-per-second on throttle.</p></li>
+      <li><span class="wk mono">Session 7</span><span class="t">Race engineering</span><p class="d">Qualifying time trials, pit-stop retraining, one-variable-at-a-time tuning &mdash; then the race configuration is frozen.</p></li>
+      <li class="big"><span class="wk mono">Session 8</span><span class="t">Grand Prix &mdash; demo day</span><p class="d">Families watch autonomous time trials and head-to-head heats, while students present their data &rarr; training &rarr; optimization &rarr; deployment story.</p></li>
     </ul>
   </section>
+
   <section>
-    <div class="soonpanel">
-      <h3>Curriculum in development</h3>
-      <p>Details (weekly journey, demo-day challenge, first cohort dates) will be published
-      here. Interest-list families hear first and get priority seating. Ages 12&ndash;18 can
-      start now with the <a href="../../lekiwi/mobile-manipulator/index.html">LeKiwi Mobile
-      Manipulator Program</a>.</p>
+    <div class="sechead">
+      <div class="eyebrow mono">Demo day</div>
+      <h2>The Grand Prix: can the AI outdrive its makers?</h2>
+      <p>In Session 2, every student posts a hand-driven lap time. On demo day their neural
+      network races that same track &mdash; and most cohorts watch the AI beat its own teachers.
+      Time trials, bracket heats, live commentary by the students, and a hands-on pit lane
+      where parents label a camera frame and watch the car obey.</p>
     </div>
+  </section>
+
+  <section>
+    <div class="sechead">
+      <div class="eyebrow mono">Outcomes</div>
+      <h2>What your teen leaves with</h2>
+    </div>
+    <ul class="checks">
+      <li><strong>The full professional pipeline, done for real</strong> &mdash; data collection, neural network training, inference optimization, deployment. The TensorRT step alone is something almost no high-school program teaches.</li>
+      <li><strong>A published dataset and trained model</strong> on the Hugging Face Hub, under their own name (with your consent).</li>
+      <li><strong>Notebooks and tuning logs on GitHub</strong> &mdash; plus a before/after FPS benchmark chart that genuinely belongs on a resume.</li>
+      <li><strong>A personal next-step letter</strong> &mdash; courses, competitions, and degree paths matched to what they gravitated toward.</li>
+      <li><strong>Grand Prix video and certificate.</strong></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="sechead">
+      <div class="eyebrow mono">Pricing &amp; cohorts</div>
+      <h2>Semi-private lab. All hardware provided.</h2>
+    </div>
+    <div class="pricebox">
+      <div class="left">
+        <div class="mono" style="color: var(--accent-ink); margin-bottom: 10px;">RaceCar Self-Driving Lab</div>
+        <div class="price">$1,200 <span class="per">/ 8-session program (planned)</span></div>
+        <p style="color: var(--steel); margin-top: 10px; font-size: 0.95rem;">$150 per 90-minute session &middot; billed once at enrollment</p>
+        <p style="color: var(--steel); font-size: 0.95rem;">First cohort dates announced to the interest list first.</p>
+      </div>
+      <div class="right">
+        <ul class="includes">
+          <li>8 weekly 90-minute lab sessions, max 4 students</li>
+          <li>JetRacer hardware, track, tools, and laptops provided</li>
+          <li>Published dataset &amp; model + GitHub portfolio</li>
+          <li>Grand Prix demo day for family + video</li>
+          <li>Personal next-step recommendation letter</li>
+          <li>Certificate: RaceCar Autonomy Engineer</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead">
+      <div class="eyebrow mono">Program FAQ</div>
+      <h2>About this program</h2>
+    </div>
+    <details>
+      <summary>What is JetRacer?</summary>
+      <p>JetRacer is NVIDIA's open-source autonomous racecar: an RC chassis carrying a Jetson
+      &mdash; the same family of AI computer that ships in real robots &mdash; and a fisheye camera.
+      Students program it entirely from a web browser, and every line of the stack is public
+      on GitHub, so what they learn here can be rebuilt and extended at home.</p>
+    </details>
+    <details>
+      <summary>Does my teen need coding or AI experience?</summary>
+      <p>No. The platform is browser-based Python notebooks, and every session starts from a
+      working scaffold. Students who already code write the control and benchmarking code
+      themselves from an API reference and take on weekly stretch goals &mdash; the max-4 class
+      size makes real differentiation possible.</p>
+    </details>
+    <details>
+      <summary>Is this real machine learning or a simulation of it?</summary>
+      <p>Real. Students hand-label camera frames, train a ResNet18 convolutional network with
+      PyTorch on the car's own GPU, diagnose its failures with data (not code), and optimize
+      it with TensorRT &mdash; the identical toolchain used to deploy production robotics models.
+      Nothing is canned: their car drives exactly as well as their dataset teaches it to.</p>
+    </details>
+    <details>
+      <summary>Why ages 14&ndash;18?</summary>
+      <p>This edition of the program is tuned for high schoolers: the training-and-iteration
+      loop rewards patience and hypothesis-driven thinking, and the payoff &mdash; a resume-grade
+      ML portfolio &mdash; matters most at college-application age. Younger engineers can start
+      with <a href="../../lekiwi/mobile-manipulator/index.html">LeKiwi (12&ndash;18, enrolling now)</a>
+      or <a href="../../drones/drone-explorers/index.html">Drone Explorers (8&ndash;11, coming soon)</a>.</p>
+    </details>
   </section>
 
 </div>
 <div class="finalcta">
   <div class="eyebrow mono" style="color: var(--accent-ink); margin-bottom: 12px;">In development</div>
-  <h2>Be first to know when this program opens.</h2>
-  <p>Join the interest list and we'll reach out with dates before public enrollment &mdash; or start with the LeKiwi program, enrolling now for ages 12&ndash;18.</p>
+  <h2>Be first on the starting grid.</h2>
+  <p>Join the interest list and we'll reach out with first-cohort dates before public enrollment &mdash; or start now with the LeKiwi program, enrolling for ages 12&ndash;18.</p>
   <a class="btn primary" href="../../../enroll/index.html">Join the interest list</a>
 </div>
 <footer>
