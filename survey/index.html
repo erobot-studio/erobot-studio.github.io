@@ -141,6 +141,12 @@
       </fieldset></div>
 
       <div class="qcard"><fieldset>
+        <legend>Which robot would your child be most excited to build and train?</legend>
+        <p class="qhint">Pick the one they'd run to first.</p>
+        <div class="opt" id="q-robot"></div>
+      </fieldset></div>
+
+      <div class="qcard"><fieldset>
         <legend>Which of these matter most to you in such a program?</legend>
         <p class="qhint">Pick up to 3.</p>
         <div class="opt" id="q-priorities"></div>
@@ -250,6 +256,12 @@ const OPTIONS = {
                "Math enrichment (Kumon, RSM, AoPS…)",
                "Science camps / maker spaces",
                "None yet — looking for a first program"],
+  robot: ["Self-driving race car — trains an AI to drive itself",
+          "Drones — programmed flight missions",
+          "Robot arm — learns tasks from human demonstration",
+          "Mobile robot — an arm on wheels that drives, sees & grabs",
+          "Humanoid robot — balance, walking & whole-body AI",
+          "Not sure — they'd love any robot"],
   priorities: ["Real robot hardware, not toy kits",
                "Actual AI & machine learning, not just coding",
                "Very small groups (max 4 students)",
@@ -300,7 +312,7 @@ function renderScale(name) {
     box.appendChild(label);
   }
 }
-["area", "format", "drive", "priceFair", "pilot"].forEach(n => renderChoices(n, "radio"));
+["area", "robot", "format", "drive", "priceFair", "pilot"].forEach(n => renderChoices(n, "radio"));
 ["ages", "activities", "priorities", "slots", "concerns"].forEach(n => renderChoices(n, "checkbox"));
 ["interest", "price150"].forEach(renderScale);
 
@@ -372,6 +384,7 @@ form.addEventListener("submit", async e => {
     ages: checkedValues("ages"),
     activities: checkedValues("activities"),
     interest: Number(radioValue("interest")),
+    robot: radioValue("robot"),
     priorities: checkedValues("priorities"),
     format: radioValue("format"),
     slots: checkedValues("slots"),
